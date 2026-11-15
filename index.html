@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="pt-BR"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>MEU SALÃO · Serviços</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f9f4ea;color:#38272e;font:17px/1.5 system-ui,sans-serif}header,main,footer{max-width:940px;margin:auto;padding:24px clamp(22px,5vw,60px)}header{display:flex;justify-content:space-between;align-items:center}b{letter-spacing:.12em}small{color:#694d57}.hero{background:linear-gradient(125deg,#422832,#683f4c);color:#fff4ea;padding:clamp(40px,7vw,86px) max(6vw,calc((100vw - 820px)/2))}h1,h2,h3{font:normal 2.3rem/1.12 Georgia,serif;margin:0 0 18px}h1{font-size:clamp(3.6rem,8vw,6rem);max-width:12ch}.hero p{max-width:420px;color:#f5ddd2}.hero a,button{display:inline-block;background:#f7e6d7;color:#412b34;border:0;border-radius:30px;padding:12px 22px;font:inherit;cursor:pointer;text-decoration:none}main{padding-top:46px}article{padding:20px 0;border-top:1px solid #d7c9bd;display:flex;align-items:center;justify-content:space-between;gap:12px}article h3{font-size:1.65rem;margin:0}article p{margin:4px 0;color:#705d63}article button,dialog button{background:#4d303c;color:white;font-size:.92rem}dialog{border:0;border-radius:18px;padding:30px;color:#38272e;width:min(420px,90vw)}dialog::backdrop{background:#29161fa8}footer{border-top:1px solid #d7c9bd;font-size:.83rem}@media(max-width:460px){article{align-items:flex-start;flex-direction:column}}
+</style>
+<header><b>MEU SALÃO</b><small>Prévia do site</small></header>
+<section class="hero"><h1>Seu próximo corte.</h1><p>Do long bob ao corte em camadas, escolha o serviço que quer conhecer.</p><a href="#servicos">Explorar serviços ↓</a></section>
+<main id="servicos"><h2>Serviços</h2>
+<article><div><h3>Cortes</h3><p>Long bob, franjas e camadas.</p></div><button data-servico="corte">Consultar horário</button></article>
+<article><div><h3>Mechas</h3><p>Luzes e iluminação dos fios.</p></div><button data-servico="mechas">Consultar horário</button></article>
+<article><div><h3>Penteados</h3><p>Presos e semipresos para ocasiões especiais.</p></div><button data-servico="penteado">Consultar horário</button></article></main>
+<dialog id="consulta"><h3>Consulta por WhatsApp</h3><p>Na página do salão, o botão abrirá o WhatsApp com esta mensagem:</p><blockquote id="mensagem"></blockquote><small>Demonstração de agendamento.</small><p><button id="fechar">Voltar aos serviços</button></p></dialog>
+<footer>MEU SALÃO · Serviços ilustrativos para demonstração.</footer>
+<script>
+const consulta=document.querySelector('#consulta');
+for(const botao of document.querySelectorAll('[data-servico]')){
+  botao.onclick=()=>{document.querySelector('#mensagem').textContent='Oi! Vi o serviço de '+botao.dataset.servico+' no site. Quais horários estão disponíveis?';consulta.showModal()};
+}
+document.querySelector('#fechar').onclick=()=>consulta.close();
+</script></html>
